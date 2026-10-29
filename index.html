@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c1521" />
+  <meta name="description" content="ScanFlow turns photos into crisp, high-quality scans you can download, print, or save as PDF." />
+  <title>ScanFlow — Smart Document Scanner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=scanflow-1" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- ─── Main Content ─── -->
+    <main class="main-content">
+      <section class="content simple-scanner">
+        <header class="scanflow-header">
+          <a class="scanflow-brand" href="#top" aria-label="ScanFlow home"><span class="brand-scan-icon">⌗</span><span>Scan<span>Flow</span></span></a>
+          <nav aria-label="Main navigation"><button type="button" data-action="scan">Scan</button><i>•</i><button type="button" data-action="convert">Convert</button><i>•</i><button type="button" data-action="download">Download</button><i>•</i><button type="button" data-action="print">Print</button></nav>
+        </header>
+        <div class="scanner-shell" id="top">
+          <div class="scanner-card">
+            <div class="hero-copy">
+            <div class="scanner-badge">SMART SCANNING SOLUTION</div>
+            <h1>Turn Your Images and Documents into <span>Clean, High-Quality Files</span></h1>
+            <p>Upload your images or documents, or take a photo directly. We’ll scan and process it for you — then download it as a PDF or image, or print it, all in seconds.</p>
+
+            <div class="scanner-meta">
+              <span>⚡ <b>High Accuracy</b><small>Clear and sharp scans</small></span>
+              <span>◈ <b>Secure &amp; Private</b><small>Your files stay with us</small></span>
+              <span>✦ <b>Fast Processing</b><small>Get results in seconds</small></span>
+              <span>▣ <b>Works on Any Device</b><small>Scan anywhere</small></span>
+            </div>
+            </div>
+            <div class="hero-art" aria-hidden="true"><div class="art-glow"></div><div class="scan-frame"><span>INVOICE</span><i>Invoice # 1024</i><hr/><small>Item　　　　 Qty　 Price</small><hr/><small>Website Design　　 $1,200</small><hr/><small>Development　　　 $2,000</small><hr/><small>Hosting　　　　　 $600</small><strong>Total　　　 $3,800</strong></div><div class="photo-frame"><div class="mountain-art">◢</div></div><b class="corner c1"></b><b class="corner c2"></b><b class="corner c3"></b><b class="corner c4"></b></div>
+          </div>
+        </div>
+
+        <section class="upload-zone" id="uploadZone" aria-label="Upload documents">
+          <div class="upload-cloud"><svg width="58" height="58" viewBox="0 0 24 24" fill="none"><path d="M7 18a4.5 4.5 0 01-.5-8.97A6 6 0 0118 8a5 5 0 01.5 9.98H15m-3-7v10m0-10l-3 3m3-3l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2>Drag &amp; drop your files here</h2><div class="or-divider"><span></span>or<span></span></div>
+          <div class="scanner-actions">
+            <button class="big-btn primary" id="browseLink" type="button"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14v2a2 2 0 002 2h10a2 2 0 002-2v-2M10 3v10M6 7l4-4 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Upload File</span></button>
+            <button class="big-btn" id="headerScan" type="button"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="11" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 5l1-2h4l1 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Take Photo</span></button>
+          </div>
+          <p class="upload-hint">Supports JPG, PNG, WEBP and other image files · Multiple pages welcome</p>
+        </section>
+
+        <section class="docs-section">
+          <div class="section-header">
+            <div>
+              <h2 id="sectionTitle">Recent scans</h2>
+              <span class="section-meta" id="resultsMeta">Your latest documents</span>
+            </div>
+          </div>
+          <div class="document-grid" id="documentGrid"></div>
+          <div class="empty-state" id="emptyState">
+            <div class="empty-visual">
+              <div class="empty-card">
+                <div class="empty-line"></div>
+                <div class="empty-line short"></div>
+                <div class="empty-line shorter"></div>
+                <div class="empty-sparkle">✦</div>
+              </div>
+              <div class="orbit-ring"></div>
+              <div class="float-particle p1">✳</div>
+              <div class="float-particle p2">✦</div>
+              <div class="float-particle p3">◈</div>
+            </div>
+            <h3>Your next great scan starts here</h3>
+            <p>Drop in a photo or capture a page with your camera.<br/>We'll detect the edges and make it crystal clear.</p>
+            <button class="primary-btn" id="emptyScan">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Scan your first document
+            </button>
+            <div class="drop-hint">or <button id="browseLinkSecondary">browse files</button> from your device</div>
+          </div>
+        </section>
+        <footer class="footer-tagline"><span>✦</span> Made for the pages worth keeping.</footer>
+      </section>
+    </main>
+  </div>
+
+  <!-- Hidden Inputs -->
+  <input id="fileInput" type="file" accept="image/*" multiple hidden />
+  <input id="cameraInput" type="file" accept="image/*" capture="environment" multiple hidden />
+
+  <!-- ─── Scan Modal ─── -->
+  <div class="modal-backdrop" id="scanModal" aria-hidden="true">
+    <div class="scan-modal">
+      <header class="modal-head">
+        <div>
+          <div class="modal-eyebrow">NEW DOCUMENT</div>
+          <h2>Let's get that page.</h2>
+        </div>
+        <button class="close-btn" id="closeModal" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="scan-choices">
+        <button class="scan-choice" id="cameraOption">
+          <span class="choice-icon camera-icon-bg">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="11" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 5l1-2h4l1 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="choice-text">
+            <strong>Use camera</strong>
+            <small>Capture a page right now</small>
+          </span>
+          <svg class="choice-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <button class="scan-choice" id="uploadOption">
+          <span class="choice-icon upload-icon-bg">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14v2a2 2 0 002 2h10a2 2 0 002-2v-2M10 3v10M6 7l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="choice-text">
+            <strong>Upload a photo</strong>
+            <small>Choose an image from your device</small>
+          </span>
+          <svg class="choice-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="modal-hint">
+        <span class="hint-icon">✦</span>
+        <span><strong>Works with every page size.</strong> From receipts to posters, we'll find the edges.</span>
+      </div>
+      <div class="modal-foot">
+        <span>🔒 Private by design</span>
+        <span>⚡ Processed on your device</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Editor Modal ─── -->
+  <div class="editor-backdrop" id="editorModal" aria-hidden="true">
+    <div class="editor-modal">
+      <header class="editor-header">
+        <button class="back-btn" id="editorBack">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Back</span>
+        </button>
+        <div class="editor-title-group">
+          <strong>Review your scan</strong>
+          <small>Crop · Enhance · Save</small>
+        </div>
+        <div class="editor-steps">
+          <span class="step current"><i>1</i> Crop</span>
+          <span class="step-line"></span>
+          <span class="step"><i>2</i> Enhance</span>
+          <span class="step-line"></span>
+          <span class="step"><i>3</i> Save</span>
+        </div>
+        <div class="rotation-strip" aria-label="Rotate document">
+          <button class="rot-btn" id="rotateLeft" title="Rotate left 90°" aria-label="Rotate left 90 degrees">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10a6 6 0 1111-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 4L4 7.5 1 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Rotate left</span>
+          </button>
+          <button class="rot-btn" id="rotateRight" title="Rotate right 90°" aria-label="Rotate right 90 degrees">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M16 10a6 6 0 10-11-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M13 4l3 3.5 3-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Rotate right</span>
+          </button>
+        </div>
+        <div class="export-actions">
+          <button class="ghost-btn" id="downloadImageBtn" type="button">Image</button>
+          <button class="ghost-btn" id="downloadPdfBtn" type="button">PDF</button>
+          <button class="ghost-btn accent" id="printScanBtn" type="button">Print</button>
+        </div>
+        <button class="save-btn" id="saveScan">
+          Save scan
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </header>
+      <div class="editor-body">
+        <div class="preview-area" id="previewStage">
+          <div class="preview-wrap">
+            <img id="previewImage" alt="Document preview"/>
+            <canvas id="previewCanvas"></canvas>
+            <div class="crop-overlay" id="cropOverlay">
+              <svg id="cropSvg" aria-label="Detected page edges"></svg>
+              <div class="crop-handle" data-corner="0"></div>
+              <div class="crop-handle" data-corner="1"></div>
+              <div class="crop-handle" data-corner="2"></div>
+              <div class="crop-handle" data-corner="3"></div>
+            </div>
+          </div>
+        </div>
+        <aside class="editor-panel">
+          <div class="panel-group">
+            <label class="panel-label">DOCUMENT NAME</label>
+            <input class="panel-input" id="scanName" value="Untitled scan" />
+          </div>
+          <div class="panel-group">
+            <label class="panel-label">PAGE SIZE <span class="auto-badge">AUTO</span></label>
+            <div class="select-wrap">
+              <select id="pageSize">
+                <option value="auto">Auto detect</option>
+                <option value="a4">A4</option>
+                <option value="letter">US Letter</option>
+                <option value="legal">US Legal</option>
+                <option value="receipt">Receipt</option>
+                <option value="square">Square</option>
+              </select>
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="panel-note">Auto detects any paper size</div>
+          </div>
+          <div class="panel-group">
+            <label class="panel-label">ENHANCE YOUR SCAN</label>
+            <div class="filter-grid">
+              <button class="filter-btn selected" data-filter="original">
+                <span class="filter-swatch swatch-original"><i></i></span>
+                <span>Original</span>
+                <svg class="filter-check" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="filter-btn" data-filter="magic">
+                <span class="filter-swatch swatch-magic"><i></i></span>
+                <span>Magic color</span>
+              </button>
+              <button class="filter-btn" data-filter="gray">
+                <span class="filter-swatch swatch-gray"><i></i></span>
+                <span>Grayscale</span>
+              </button>
+              <button class="filter-btn" data-filter="bw">
+                <span class="filter-swatch swatch-bw"><i></i></span>
+                <span>Black & white</span>
+              </button>
+              <button class="filter-btn" data-filter="lighten">
+                <span class="filter-swatch swatch-light"><i></i></span>
+                <span>Lighten</span>
+              </button>
+              <button class="filter-btn" data-filter="sharpen">
+                <span class="filter-swatch swatch-sharp"><i></i></span>
+                <span>Sharpen</span>
+              </button>
+            </div>
+          </div>
+          <div class="panel-tip">
+            <span>✧</span>
+            <span>Folio found the page. Adjust corners if needed, use the slider for fine rotation.</span>
+          </div>
+          <div class="panel-bottom">
+            <button id="retakeBtn" class="retake-btn">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 2v5h5M14 14v-5H9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 6.5A6 6 0 004 4L2 7M2.5 9.5A6 6 0 0012 12l2-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Retake / replace
+            </button>
+            <span class="ready-label">Ready for print or sharing</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Context Menu -->
+  <div class="context-menu" id="contextMenu">
+    <button data-action="download">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v9M4 8l4 4 4-4M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download JPG
+    </button>
+    <button data-action="download-pdf">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6.5h8M4 9.5h8M4 12.5h5M4 3.5h8.5v9.5H4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download PDF
+    </button>
+    <button data-action="print">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5 2.5h6v2.5H5zm-2 5h10a1.5 1.5 0 011.5 1.5v3H12v2H4v-2H3.5v-3A1.5 1.5 0 013 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Print
+    </button>
+    <button data-action="rename">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.5 2.5l2 2-8 8H3.5v-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      Rename
+    </button>
+    <button data-action="delete" class="danger">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 5h10l-.8 8a1.5 1.5 0 01-1.5 1.4H5.3A1.5 1.5 0 013.8 13L3 5zM5.5 5V3.5a1 1 0 011-1h3a1 1 0 011 1V5M2 5h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Delete
+    </button>
+  </div>
+
+  <script src="app.js?v=scanflow-1"></script>
+</body>
+</html>
